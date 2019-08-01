@@ -1,8 +1,9 @@
-import 'package:conserve/home_questions.dart';
-import 'package:conserve/travel.dart';
-import 'package:conserve/travel_questions.dart';
+
+import 'package:conserve/pages/home_questions.dart';
+import 'package:conserve/walkaround/food.dart';
+import 'package:conserve/walkaround/travel.dart';
 import 'package:flutter/material.dart';
-import './food.dart';
+
 
 class Quiz extends StatefulWidget {
   int score;

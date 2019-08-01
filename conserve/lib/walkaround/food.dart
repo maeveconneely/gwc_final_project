@@ -1,5 +1,6 @@
+import 'package:conserve/pages/food_questions.dart';
 import 'package:flutter/material.dart';
-import './food_questions.dart';
+
 
 class Food extends StatelessWidget {
 

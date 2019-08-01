@@ -1,10 +1,9 @@
-import 'package:conserve/drop_field.dart';
-import 'package:conserve/dropdown.dart';
+import 'package:conserve/data/database_helper.dart';
+import 'package:conserve/extra_widgets/drop_field.dart';
+import 'package:conserve/extra_widgets/dropdown.dart';
+import 'package:conserve/extra_widgets/num.dart';
+import 'package:conserve/model/score.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import './num.dart';
-import 'package:flutter/services.dart';
-import 'dart:async';
 
 class TravelQuestions extends StatefulWidget {
   int score;
@@ -18,7 +17,9 @@ class TravelQuestions extends StatefulWidget {
 
 class _TravelQuestionsState extends State<TravelQuestions> {
   static int miles;
-  final String nameKey = '_miles';
+  int column;
+  String nameKey;
+  var dbHelper = DatabaseHelper.instance;
 
   @override
   void initState() {
@@ -30,13 +31,53 @@ class _TravelQuestionsState extends State<TravelQuestions> {
   void _changeMenu(String value) {
     setState(() {
       dropdownValue = value;
+      nameKey = dropdownValue;
     });
+  }
+
+  void _changeScore(int value) async {
+    bool go = false;
+    if (nameKey == 'Car') {
+      column = 0;
+      go = true;
+    } else if (nameKey == 'Bus') {
+      column = 1;
+      go = true;
+    }
+
+    Score row = Score(
+      columnId: column,
+      columnName: nameKey,
+      columnScore: value
+    );
+
+    //DatabaseHelper.columnId = row.id;
+
+
+    
+
+    
+    if (go) {
+      print('okay');
+      await dbHelper.insertScore(row).then((value) {
+        print(value);
+      }).catchError((onError) {
+        dbHelper.updateScore(row);
+      });
+    }
+  }
+
+  _queryScores() async {
+    final allRows = await dbHelper.queryAllRows();
+    print('query all rows:');
+    allRows.forEach((row) => print(row));
+    return await allRows[0]['score'];
   }
 
   void _onChange(value) {
     print(value);
     if (Num.isNumeric(value)) {
-      miles = int.parse(value);
+      _changeScore(int.parse(value));
     } else {
       showDialog(
           context: context,
@@ -46,24 +87,6 @@ class _TravelQuestionsState extends State<TravelQuestions> {
             );
           });
     }
-  }
-
-  void saveData() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    print('saved');
-    await preferences.setString(nameKey, miles.toString());
-  }
-
-  Future<int> loadData() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    String milesNum = preferences.getString(nameKey);
-    print(milesNum);
-
-    if (milesNum == null) {
-      return 0;
-    }
-
-    return int.parse(milesNum);
   }
 
   static int score;
@@ -77,6 +100,7 @@ class _TravelQuestionsState extends State<TravelQuestions> {
   String dropdownValue = itemsBar[0];
 
   Widget build(BuildContext context) {
+    _queryScores();
     return Container(
       child: Card(
         child: Column(

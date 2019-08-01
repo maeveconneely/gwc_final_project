@@ -1,5 +1,6 @@
+import 'package:conserve/extra_widgets/num.dart';
 import 'package:flutter/material.dart';
-import './num.dart';
+
 
 class HomeQuestions extends StatelessWidget {
   int score;

@@ -4,7 +4,10 @@ class DropField extends StatelessWidget {
   String text;
   Function f;
 
+
   DropField(this.text, this.f);
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class DropField extends StatelessWidget {
           border: OutlineInputBorder(),
           contentPadding: EdgeInsets.all(15),
           labelText: text,
-          //hintText: 'p',
+          //hintText: hintText,
         ),
         onChanged: (String value) {
           f(value);

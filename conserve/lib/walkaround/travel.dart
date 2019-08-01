@@ -1,4 +1,4 @@
-import 'package:conserve/travel_questions.dart';
+import 'package:conserve/pages/travel_questions.dart';
 import 'package:flutter/material.dart';
 
 class Travel extends StatelessWidget {
