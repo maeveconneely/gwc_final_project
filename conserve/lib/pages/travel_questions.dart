@@ -43,20 +43,16 @@ class _TravelQuestionsState extends State<TravelQuestions> {
     } else if (nameKey == 'Bus') {
       column = 1;
       go = true;
+    } else if (nameKey == 'Plane') {
+      column = 2;
+      go = true;
     }
 
-    Score row = Score(
-      columnId: column,
-      columnName: nameKey,
-      columnScore: value
-    );
+    Score row =
+        Score(columnId: column, columnName: nameKey, columnScore: value);
 
     //DatabaseHelper.columnId = row.id;
 
-
-    
-
-    
     if (go) {
       print('okay');
       await dbHelper.insertScore(row).then((value) {
@@ -95,6 +91,7 @@ class _TravelQuestionsState extends State<TravelQuestions> {
     'Pick Transportation',
     'Car',
     'Bus',
+    'Plane'
   ];
 
   String dropdownValue = itemsBar[0];
@@ -105,8 +102,33 @@ class _TravelQuestionsState extends State<TravelQuestions> {
       child: Card(
         child: Column(
           children: [
-            DropDown(itemsBar, _changeMenu, dropdownValue, 'Select Travel'),
-            DropField('Enter Amount', _onChange),
+            DropDown(itemsBar, _changeMenu, dropdownValue, '  Select Travel'),
+            DropField('Enter Miles', _onChange, dropdownValue),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                
+                children: <Widget>[
+                  Text(
+                    '\n\n\n\n"Earth provides enough to satisfy every man\'s needs, but not every man\'s greed."',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Text(
+                    '\n-Mahatma Gandhi',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      color: Colors.grey,
+                    ),
+                  )
+                ],
+              ),
+            )
+
           ],
         ),
       ),

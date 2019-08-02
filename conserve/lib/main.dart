@@ -30,10 +30,11 @@ class _ConserveState extends State<Conserve> {
 
   @override
   Widget build(BuildContext context) {
-    s.calcCar();
+    //s.calcCar();
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.cyan,
+        
       ),
       home: Home(score),
     );

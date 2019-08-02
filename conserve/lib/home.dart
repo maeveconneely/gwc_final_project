@@ -11,37 +11,43 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   int score;
 
-   @override
+  @override
   void initState() {
     score = widget.score;
 
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         title: Text(
           "My Footprint",
           textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
-        backgroundColor: Colors.green,
+        //backgroundColor: Colors.green,
       ),
-      body: Text("Total:",), //gonna call footprint.dart here
+      body: Text(
+        "Total:",
+      ), //gonna call footprint.dart here
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
             DrawerHeader(
-              child: Text("CO2NSERVE"),
+              child: Image.asset('images/conserv.png'),
               decoration: BoxDecoration(
-                color: Colors.green,
+                color: Colors.cyan,
               ),
             ),
             FlatButton(
-                color: Colors.green,
+                color: Colors.cyan,
                 textColor: Colors.white,
                 disabledColor: Colors.grey,
                 disabledTextColor: Colors.black,
@@ -54,7 +60,7 @@ class _HomeState extends State<Home> {
                   textAlign: TextAlign.center,
                 )),
             FlatButton(
-                color: Colors.green,
+                color: Colors.cyan,
                 textColor: Colors.white,
                 disabledColor: Colors.grey,
                 disabledTextColor: Colors.black,
@@ -69,7 +75,7 @@ class _HomeState extends State<Home> {
                   "Calculator",
                 )),
             FlatButton(
-                color: Colors.green,
+                color: Colors.cyan,
                 textColor: Colors.white,
                 disabledColor: Colors.grey,
                 disabledTextColor: Colors.black,
@@ -83,10 +89,14 @@ class _HomeState extends State<Home> {
                 child: Text(
                   "Resources",
                 )),
-            ListTile(
-                title: Text("Close"),
-                trailing: Icon(Icons.close),
-                onTap: () {
+            FlatButton(
+                child: Text("Close"),
+                color: Colors.cyan,
+                textColor: Colors.white,
+                disabledColor: Colors.grey,
+                disabledTextColor: Colors.black,
+                padding: EdgeInsets.all(8.0),
+                onPressed: () {
                   Navigator.pop(context);
                 }),
           ],

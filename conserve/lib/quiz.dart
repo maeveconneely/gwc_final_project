@@ -1,9 +1,7 @@
-
 import 'package:conserve/pages/home_questions.dart';
 import 'package:conserve/walkaround/food.dart';
 import 'package:conserve/walkaround/travel.dart';
 import 'package:flutter/material.dart';
-
 
 class Quiz extends StatefulWidget {
   int score;
@@ -16,7 +14,6 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-
   static int score = 0;
   static int miles = 0;
 
@@ -37,7 +34,6 @@ class _QuizState extends State<Quiz> {
   ];
 
   void _onItemTapped(int index) {
-
     setState(() {
       _selectedIndex = index;
     });
@@ -47,7 +43,13 @@ class _QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Footprint Test'),
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text(
+          'Footprint Calculator',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Container(
         child: Center(
@@ -74,7 +76,7 @@ class _QuizState extends State<Quiz> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.green,
+        selectedItemColor: Colors.cyan,
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
