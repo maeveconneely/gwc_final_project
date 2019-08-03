@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:conserve/extra_widgets/score_calculator.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +14,7 @@ class _FootprintState extends State<Footprint> {
   ScoreCalculator s = ScoreCalculator();
   Future<double> _calculation;
   double leftAmount = 0;
+  
 
   Widget _buildPanel() {
     return ExpansionPanelList(
@@ -69,29 +72,29 @@ class _FootprintState extends State<Footprint> {
     score += await s.calcSmartphone();
     score += await s.calcTablet();
     score += await s.calcClothes();
-
+    print('run');
     return score;
   }
 
   @override
   Widget build(BuildContext context) {
-    print(getLeftAmount());
+    _calculation = getScore();
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          ListView(children: [
-            SizedBox(
-              height: 60,
-            ),
-            FutureBuilder(
+          Positioned(
+            top: 60,
+            left: 146,
+            child: FutureBuilder(
               future: _calculation,
               builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
-                
                 if (snapshot.hasData) {
-                  leftAmount = snapshot.data / 7.8;
-                  
+                  leftAmount = snapshot.data / .075;
+                  if (leftAmount > 390) {
+                    leftAmount = 390;
+                  }
                   return Text(
-                    'Your Score: ${snapshot.data}',
+                    'Your Score: ' + snapshot.data.toStringAsFixed(1),
                     textAlign: TextAlign.center,
                   );
                 } else {
@@ -100,18 +103,27 @@ class _FootprintState extends State<Footprint> {
                 }
               },
             ),
+          ),
+          ListView(children: [
+            SizedBox(
+              height: 90,
+            ),
+            RaisedButton(
+              child: Text('Reload'),
+              onPressed: () {setState(() { 
+                
+              });}
+            ),
+            SizedBox(
+              height: 360,
+            ),
             SingleChildScrollView(
               child: Container(
                 child: _buildPanel(),
               ),
             ),
-            RaisedButton(
-              child: Text('Reload'),
-              onPressed: () {
-                setState(() {});
-              },
-            )
           ]),
+           
           Positioned(
             left: 0,
             right: 245,

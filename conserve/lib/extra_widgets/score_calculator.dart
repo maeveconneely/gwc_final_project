@@ -493,7 +493,7 @@ Future<double> calcSmartphone() async{
     }
 
     // return score with calculation
-    return (smartphoneScore *(28/1456) + 27);
+    return (smartphoneScore *(28/1456));
 
   }
 
@@ -518,7 +518,7 @@ Future<double> calcTablet() async{
     }
 
     // return score with calculation
-    return (tabletScore *(65/1456) + 65 );
+    return (tabletScore *(65/1456));
 
   }
 
