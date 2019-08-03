@@ -34,9 +34,7 @@ class _HomeState extends State<Home> {
         ),
         //backgroundColor: Colors.green,
       ),
-      body: Text(
-        "Total:",
-      ), //gonna call footprint.dart here
+      body: Footprint(), //gonna call footprint.dart here
       drawer: Drawer(
         child: ListView(
           children: <Widget>[

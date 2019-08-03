@@ -1,7 +1,9 @@
-import 'package:conserve/pages/home_questions.dart';
 import 'package:conserve/walkaround/food.dart';
+import 'package:conserve/walkaround/homew.dart';
+import 'package:conserve/walkaround/misc.dart';
 import 'package:conserve/walkaround/travel.dart';
 import 'package:flutter/material.dart';
+
 
 class Quiz extends StatefulWidget {
   int score;
@@ -27,10 +29,10 @@ class _QuizState extends State<Quiz> {
   int _selectedIndex = 0;
 
   List<Widget> _widgetOptions = <Widget>[
-    HomeQuestions(score),
+    Homew(),
     Food(),
     Travel(miles),
-    Text('Index 3, Misc.')
+    Misc()
   ];
 
   void _onItemTapped(int index) {

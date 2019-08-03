@@ -5,28 +5,21 @@ import 'package:conserve/extra_widgets/num.dart';
 import 'package:conserve/model/score.dart';
 import 'package:flutter/material.dart';
 
-class TravelQuestions extends StatefulWidget {
-  int score;
-  int miles;
 
-  TravelQuestions(this.miles);
+class MiscQuestions extends StatefulWidget {
+  static const List<String> itemBar = [
+    'Pick Item',
+    'Clothes',
+  ];
 
   @override
-  _TravelQuestionsState createState() => _TravelQuestionsState();
+  _MiscQuestionsState createState() => _MiscQuestionsState();
 }
 
-class _TravelQuestionsState extends State<TravelQuestions> {
-  static int miles;
+class _MiscQuestionsState extends State<MiscQuestions> {
   int column;
   String nameKey;
   var dbHelper = DatabaseHelper.instance;
-
-  @override
-  void initState() {
-    //score = widget.score;
-    miles = widget.miles;
-    super.initState();
-  }
 
   void _changeMenu(String value) {
     setState(() {
@@ -37,14 +30,8 @@ class _TravelQuestionsState extends State<TravelQuestions> {
 
   void _changeScore(int value) async {
     bool go = false;
-    if (nameKey == 'Car') {
-      column = 0;
-      go = true;
-    } else if (nameKey == 'Bus') {
-      column = 1;
-      go = true;
-    } else if (nameKey == 'Plane') {
-      column = 2;
+    if (nameKey == 'Clothes') {
+      column = 21;
       go = true;
     }
 
@@ -87,14 +74,7 @@ class _TravelQuestionsState extends State<TravelQuestions> {
 
   static int score;
 
-  static const List<String> itemsBar = [
-    'Pick Transportation',
-    'Car',
-    'Bus',
-    'Plane'
-  ];
-
-  String dropdownValue = itemsBar[0];
+  String dropdownValue = MiscQuestions.itemBar[0];
 
   Widget build(BuildContext context) {
     _queryScores();
@@ -102,9 +82,9 @@ class _TravelQuestionsState extends State<TravelQuestions> {
       child: Card(
         child: Column(
           children: [
-            DropDown(itemsBar, _changeMenu, dropdownValue, '  Select Travel'),
+            DropDown(MiscQuestions.itemBar, _changeMenu, dropdownValue,
+                '  Select Appliance'),
             DropField(
-                text: 'Enter Miles',
                 f: _onChange,
                 dropdownValue: dropdownValue),
             Container(
@@ -112,7 +92,7 @@ class _TravelQuestionsState extends State<TravelQuestions> {
               child: Column(
                 children: <Widget>[
                   Text(
-                    '\n\n\n\n"Earth provides enough to satisfy every man\'s needs, but not every man\'s greed."',
+                    '\n\n\n\n“Be the change you wish to see in this world.”',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontStyle: FontStyle.italic,

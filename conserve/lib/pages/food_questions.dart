@@ -127,14 +127,16 @@ class _FoodQuestionsState extends State<FoodQuestions> {
           children: [
             DropDown(FoodQuestions.itemsBar, _changeMenu, dropdownValue,
                 'Select Diet'),
-            DropField('Enter serving', _onChange, dropdownValue),
+            DropField(
+                text: 'Enter serving',
+                f: _onChange,
+                dropdownValue: dropdownValue),
             Container(
               padding: EdgeInsets.all(10),
               child: Column(
-                
                 children: <Widget>[
                   Text(
-                    '\n\n\n\n"What is the use of a house if you haven\'t got a tolerable planet to put it on?"',
+                    '\n\n\n\n“Save the Earth, it’s our only source of chocolate!”',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontStyle: FontStyle.italic,
@@ -142,7 +144,7 @@ class _FoodQuestionsState extends State<FoodQuestions> {
                     ),
                   ),
                   Text(
-                    '\n-Henry David Thoreau',
+                    '\n-Anonymous',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontStyle: FontStyle.italic,
