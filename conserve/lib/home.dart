@@ -1,4 +1,5 @@
 import 'package:conserve/quiz.dart';
+import 'package:conserve/resources.dart';
 import 'package:flutter/material.dart';
 import 'footprint.dart';
 
@@ -79,10 +80,10 @@ class _HomeState extends State<Home> {
                 disabledTextColor: Colors.black,
                 padding: EdgeInsets.all(8.0),
                 onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   // MaterialPageRoute(builder: (context) => ThirdRoute()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Resources()),
+                  );
                 },
                 child: Text(
                   "Resources",

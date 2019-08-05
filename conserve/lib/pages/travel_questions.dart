@@ -54,9 +54,9 @@ class _TravelQuestionsState extends State<TravelQuestions> {
     //DatabaseHelper.columnId = row.id;
 
     if (go) {
-      print('okay');
+
       await dbHelper.insertScore(row).then((value) {
-        print(value);
+
       }).catchError((onError) {
         dbHelper.updateScore(row);
       });
@@ -65,8 +65,6 @@ class _TravelQuestionsState extends State<TravelQuestions> {
 
   _queryScores() async {
     final allRows = await dbHelper.queryAllRows();
-    print('query all rows:');
-    allRows.forEach((row) => print(row));
     return await allRows[0]['score'];
   }
 

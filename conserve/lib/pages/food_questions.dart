@@ -33,7 +33,6 @@ class _FoodQuestionsState extends State<FoodQuestions> {
   var dbHelper = DatabaseHelper.instance;
 
   void _onChange(value) {
-    print(value);
     if (Num.isNumeric(value)) {
       _changeScore(int.parse(value));
     } else {
@@ -103,7 +102,6 @@ class _FoodQuestionsState extends State<FoodQuestions> {
 
     if (go) {
       await dbHelper.insertScore(row).then((value) {
-        print(value);
       }).catchError((onError) {
         dbHelper.updateScore(row);
       });
@@ -112,8 +110,6 @@ class _FoodQuestionsState extends State<FoodQuestions> {
 
   _queryScores() async {
     final allRows = await dbHelper.queryAllRows();
-    print('query all rows:');
-    allRows.forEach((row) => print(row));
     return await allRows[0]['score'];
   }
 

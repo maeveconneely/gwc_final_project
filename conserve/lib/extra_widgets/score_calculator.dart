@@ -16,7 +16,7 @@ class ScoreCalculator {
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
+
       c.add(Score.fromMap(score));
     });
 
@@ -28,7 +28,7 @@ class ScoreCalculator {
       }
     }
 
-    print('okay');
+
     // return score with calculation
     return carScore * .40935;
 
@@ -39,7 +39,6 @@ class ScoreCalculator {
   
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -60,7 +59,6 @@ class ScoreCalculator {
   
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -80,7 +78,6 @@ class ScoreCalculator {
   
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -104,7 +101,6 @@ class ScoreCalculator {
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -129,7 +125,6 @@ Future<double> calcPoultry() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -153,7 +148,6 @@ Future<double> calcPoultry() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -180,7 +174,6 @@ Future<double> calcPoultry() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -205,7 +198,6 @@ Future<double> calcPoultry() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -230,7 +222,6 @@ Future<double> calcPoultry() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -255,7 +246,6 @@ Future<double> calcPoultry() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -280,7 +270,6 @@ Future<double> calcPoultry() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -305,7 +294,6 @@ Future<double> calcPoultry() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -330,7 +318,6 @@ Future<double> calcPoultry() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -355,7 +342,6 @@ Future<double> calcPoultry() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -380,7 +366,6 @@ Future<double> calcPotato() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
@@ -405,14 +390,13 @@ Future<double> calcShower() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
     // find the car score
     int showerScore = 0;
     for (int i = 0; i < c.length; i++) {
-      if (c[i].columnId == 16) {
+      if (c[i].columnId == 18) {
         showerScore = c[i].columnScore;
       }
     }
@@ -430,14 +414,13 @@ Future<double> calcBathroom() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
     // find the car score
     int bathroomScore = 0;
     for (int i = 0; i < c.length; i++) {
-      if (c[i].columnId == 17) {
+      if (c[i].columnId == 19) {
         bathroomScore = c[i].columnScore;
       }
     }
@@ -455,14 +438,13 @@ Future<double> calcBottle() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
     // find the car score
     int bottleScore = 0;
     for (int i = 0; i < c.length; i++) {
-      if (c[i].columnId == 18) {
+      if (c[i].columnId == 20) {
         bottleScore = c[i].columnScore;
       }
     }
@@ -480,14 +462,13 @@ Future<double> calcSmartphone() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
       c.add(Score.fromMap(score));
     });
 
     // find the car score
     int smartphoneScore = 0;
     for (int i = 0; i < c.length; i++) {
-      if (c[i].columnId == 19) {
+      if (c[i].columnId == 16) {
         smartphoneScore = c[i].columnScore;
       }
     }
@@ -505,14 +486,14 @@ Future<double> calcTablet() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
+ 
       c.add(Score.fromMap(score));
     });
 
     // find the car score
     int tabletScore = 0;
     for (int i = 0; i < c.length; i++) {
-      if (c[i].columnId == 20) {
+      if (c[i].columnId == 17) {
         tabletScore = c[i].columnScore;
       }
     }
@@ -530,7 +511,7 @@ Future<double> calcClothes() async{
     // make it a list of Scores
     List<Score> c = List<Score>();
      allRows.forEach((score) {
-      print(score);
+
       c.add(Score.fromMap(score));
     });
 

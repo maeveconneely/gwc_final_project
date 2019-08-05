@@ -41,9 +41,9 @@ class _MiscQuestionsState extends State<MiscQuestions> {
     //DatabaseHelper.columnId = row.id;
 
     if (go) {
-      print('okay');
+
       await dbHelper.insertScore(row).then((value) {
-        print(value);
+
       }).catchError((onError) {
         dbHelper.updateScore(row);
       });
@@ -58,7 +58,6 @@ class _MiscQuestionsState extends State<MiscQuestions> {
   }
 
   void _onChange(value) {
-    print(value);
     if (Num.isNumeric(value)) {
       _changeScore(int.parse(value));
     } else {
